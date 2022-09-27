@@ -1,0 +1,5 @@
+# Dynamically generated files
+__pycache__
+.cache
+.bash_history
+*.png
