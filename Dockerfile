@@ -7,13 +7,18 @@ RUN apt-get update -y && apt-get upgrade -y
 # Install minimal dependencies
 RUN apt install -y git python3 python3-pip ngspice libngspice0-dev
 
+# Copy Python packages requirements file
+COPY requirements.txt .
 # Install PySpice : pip pulls all the python depencies
-RUN pip3 install PySpice
+RUN pip3 install -r requirements.txt
+# Once installed, remove Python packages requirements file
+RUN rm requirements.txt
 
 # Move to root folder
 WORKDIR /root
 
 # Install an additional package for enabling graphics output with python on docker
+RUN apt-get update -y
 RUN apt-get install -y python3-tk
 
 # Validate PySpice installation

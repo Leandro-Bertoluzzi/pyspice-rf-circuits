@@ -1,0 +1,7 @@
+name: pyspice-rf
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9.13
+  - pyspice=1.5
