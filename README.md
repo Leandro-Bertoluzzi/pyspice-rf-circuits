@@ -51,7 +51,7 @@ The following tools were used in this project:
 
 ## :white_check_mark: Requirements ##
 
-- If you want to use the docker container, you only need to [install Docker](https://www.docker.com/get-started) in your machine.
+- If you want to use the docker container, you need to [install Docker](https://www.docker.com/get-started) and, optionally, [Docker Compose](https://docs.docker.com/compose/install/) in your machine.
 
 - If you decide to not use docker, you need to install [PySpice](https://pyspice.fabrice-salvaire.fr/). The version currently used is [v1.5](https://pyspice.fabrice-salvaire.fr/releases/v1.5/installation.html). In the same docs you are taught how to install NgSpice.
 
@@ -66,19 +66,22 @@ $ git clone https://github.com/Leandro-Bertoluzzi/pyspice-rf-circuits
 # Access the project folder
 $ cd pyspice-rf-circuits
 
-# Option 1: Using Docker container
+# Option 1: Using Docker container through docker-compose
+docker-compose run --rm pyspice the_folder/the_file.py
+
+# Option 2: Using Docker container without docker-compose
 ## Before running it for the first time and every time you modify the scripts, build the docker container
 docker build -t pyspice .
 ## Run the Docker container with the script as a parameter
 docker run --rm -v %cd%/results:/root/results pyspice the_folder/the_file.py
 
-# Option 2: Installing PySpice in local machine
+# Option 3: Installing PySpice in local machine
 ## Enter any of the folders and run a script
 $ cd the_folder
 $ python the_file.py
 ```
 
-**Note:** To get the current directory you must use:
+**Note:** If you chose option 2, to get the current directory you must use:
 - Windows (cmd): %cd%
 - Windows (PowerShell): ${PWD}
 - Linux: $(pwd)
